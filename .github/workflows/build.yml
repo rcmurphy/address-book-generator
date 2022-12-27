@@ -1,4 +1,4 @@
-name: Run Script
+name: Generate Address Books
 
 on:
   push:
@@ -22,5 +22,5 @@ jobs:
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
         with:
-          name: results
+          name: address-books
           path: output/*

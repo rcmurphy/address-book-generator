@@ -14,7 +14,9 @@ raw_contracts = r.json()
 contracts = [
     {"symbol": coin["symbol"], "contract": coin["platforms"]["ethereum"]}
     for coin in raw_contracts
-    if "ethereum" in coin["platforms"] and coin["id"] in market_ids
+    if "ethereum" in coin["platforms"]
+    and coin["id"] in market_ids
+    and coin["platforms"]["ethereum"] != ""
 ]
 
 import csv

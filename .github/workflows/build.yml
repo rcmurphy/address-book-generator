@@ -15,7 +15,10 @@ jobs:
         with:
           python-version: '3.x'
       - name: Execute script
-        run: python ./build.py
+        run: |
+              mkdir output
+              pip install requests
+              python ./build.py
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
         with:

@@ -1,0 +1,23 @@
+name: Run Script
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout Code
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Execute script
+        run: python ./build.py
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: results
+          path: output/*
